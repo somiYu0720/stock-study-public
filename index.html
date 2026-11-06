@@ -1,72 +1,39 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>주식 공부 과정과 NASDAQ 7.0 공개 마스터 가이드</title><style>body{font:16px/1.85 system-ui,sans-serif;max-width:940px;margin:0 auto;padding:28px 20px;color:#182334;background:#fff}h1{font-size:2rem;line-height:1.35}h2{margin-top:44px;border-bottom:2px solid #253f6b;padding-bottom:10px}h3{margin-bottom:4px}article{padding:12px 0;border-bottom:1px solid #e7eaf0}p{margin-top:6px}nav{display:flex;gap:18px;flex-wrap:wrap}a{color:#1456b8}button{background:#163f7c;color:white;border:0;padding:13px 18px;border-radius:8px;cursor:pointer;font:inherit}small,.note{color:#536174}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f9;padding:20px;border-radius:12px;font:14px/1.7 ui-monospace,monospace}</style></head><body><h1>ChatGPT로 미국 소형주를 공부하고 조기포착 시스템을 설계한 과정</h1><p class="note">공개 학습용 자료 | 투자 권유 아님 | 개인정보·보안정보·제3자 V20 제외</p><nav><a href="#study">공부 방법</a><a href="#prompt">16개 항목 마스터 프롬프트</a><a href="#copy">전체 프롬프트 복사</a></nav><section id="study-original"><h2>주식 공부 방법 — 원본 전문</h2><p>사용자가 제공한 1~9번 전체 원문을 수정 없이 별도 파일로 게시했습니다.</p><p><a href="stock-study-original.txt">공부 방법 원본 전체 보기 · 다운로드</a></p><button onclick="fetch('stock-study-original.txt').then(r=>r.text()).then(t=>navigator.clipboard.writeText(t).then(()=>alert('공부 방법 원본 전체 복사 완료')))">공부 방법 원본 복사</button></section><section id="original"><h2>원본 B형 통합 마스터 프롬프트 (무수정 전문)</h2><p>사용자가 제공한 원문을 별도 텍스트 파일로 그대로 게시했습니다. 아래 링크에서 전체 16개 PART를 읽거나 다운로드할 수 있습니다.</p><p><a href="master-prompt-original.txt">원본 전문 보기 · 다운로드</a></p><p><button onclick="fetch('master-prompt-original.txt').then(r=>r.text()).then(t=>navigator.clipboard.writeText(t).then(()=>alert('원본 전체 복사 완료')))">원본 전체 복사</button></p></section><section id="study"><h2>1. 주식 공부 방법: 질문에서 검증과 자동화까지</h2><p>아래는 ChatGPT를 활용해 공부하면서 정리한 접근법이다. 구체적인 실전 수익이나 실시간 포착 성과를 보장하지 않는다.</p><article><h3>출발점: 주식 가격이 아니라 이유를 질문하기</h3><p>처음에는 왜 특정 소형주가 하루에 수십 퍼센트씩 오르거나 떨어지는지 궁금했다. ChatGPT에 종목명만 던지는 대신 '오늘 움직임의 원인은 무엇인가', '거래량은 언제부터 늘었는가', '뉴스가 먼저였는가 가격이 먼저였는가'처럼 질문을 쪼갰다. 단순히 오를 종목을 추천받는 것이 아니라 검증할 가설을 만드는 공부였다.</p></article>
-<article><h3>가격과 거래량을 함께 읽기</h3><p>전일 종가, 시간외, 프리마켓, 본장, 애프터마켓을 분리해서 봤다. 거래량이 평소보다 2배, 3배, 5배, 10배 이상 커지는 순간을 살피고, 1분·5분·15분 사이에 속도가 빨라지는지 확인했다. 특히 상승률이 아직 10% 이내인데 거래량만 먼저 뛰는 '가격 지연' 상황에 주목했다. 거래량이 많다고 무조건 매집이라고 단정하지는 않았다.</p></article>
-<article><h3>뉴스와 공시를 시간순으로 대조하기</h3><p>뉴스 제목만 읽지 않고 실제 발표 시각, 계약의 확정 여부, 공시와 보도자료의 차이를 확인했다. 임상 2·3상 결과, FDA 일정, M&amp;A 종결, 대형 계약, 실적 변화처럼 촉매가 될 만한 사건을 분류했다. 같은 뉴스라도 기대감 단계인지 최종 확정 단계인지 구별했다.</p></article>
-<article><h3>SEC 원문 읽기</h3><p>미국 SEC EDGAR에서 8-K, 10-Q, 10-K, S-3, 424B, F-1, 6-K 등을 찾아 AI에게 항목별로 해석하도록 했다. ATM, 워런트, 전환증권, PIPE, ELOC, 재판매등록 등은 실제 발행·행사·매도 가능 시점이 다르므로 구분했다. '희석 가능성'과 '지금 당장 시장에 나올 수 있는 물량'을 같은 뜻으로 취급하지 않았다.</p></article>
-<article><h3>급등한 종목을 거꾸로 복기하기</h3><p>이미 급등한 종목을 보면 급등 후 차트만 설명하지 않고, 전날·며칠 전·장 시작 직후로 되돌아가 거래량과 뉴스의 순서를 재구성했다. '급등하기 전에 감지할 수 있었던 신호는 무엇인가', '왜 기존 감시 목록에서 빠졌는가'를 기록했다. 놓친 종목을 시스템의 실패 사례로 활용했다.</p></article>
-<article><h3>과매도와 재점화 연구</h3><p>RSI 20 이하처럼 극단적인 과매도 구간을 살펴보되 낙폭이 크다는 이유만으로 반등을 가정하지 않았다. 거래량 대비 낙폭, 저점 방어, 악재의 지속성, 신규 공급 가능성, 반등 촉매를 별도로 살폈다. 과거 급등 후 잠잠해진 종목에서 거래량이 다시 살아나는 재점화 패턴도 연구했다.</p></article>
-<article><h3>공매도와 유통물량 확인</h3><p>유통주식 수, 공매도 잔고, 대차비용, FTD를 조사해 숏커버 가능성을 살폈다. 데이터 제공처마다 갱신 주기가 달라서 오래된 공매도 수치를 현재값처럼 쓰지 않는 것이 중요했다. 낮은 유통물량이 상승을 보장하지 않는다는 점도 함께 확인했다.</p></article>
-<article><h3>백테스트로 가설 검증하기</h3><p>포착 조건을 만들었다면 과거 데이터에서 30분 후, 다음 거래일, D+3, D+5 결과를 점검했다. 신호가 발생한 시점에 실제로 알 수 있었던 정보만 사용하고, 나중에 살아남은 종목만 고르는 생존편향을 피하려고 했다. 승률과 수익률은 기준·표본·비용에 따라 달라지므로 숫자만 보고 실전 성과라고 주장하지 않았다.</p></article>
-<article><h3>ChatGPT 답변을 검증하는 습관</h3><p>AI가 종목 가격이나 공시를 잘못 말할 수 있어 날짜·통화·거래량·SEC 문서 원문을 재확인했다. 확정된 사실, 분석적 해석, 추정, 확인 불가를 분리해서 기록했다. 가장 나쁜 시나리오부터 검토한 뒤 상승 가능성을 비교하는 습관을 만들었다.</p></article>
-<article><h3>질문에서 도구 제작으로 확장하기</h3><p>반복 질문을 줄이려고 GitHub 저장소, Python 데이터 수집, 무료 API, GitHub Actions 스케줄, GitHub Pages 대시보드, Telegram 알림 구조를 연구했다. 오류가 나면 기존 코드 백업→원인 진단→작은 수정→실행 로그 확인 순서로 복구하도록 설계했다. 설계된 기능과 실제 작동이 확인된 기능은 구별해야 한다.</p></article>
-<article><h3>현재의 공부 방식</h3><p>시장 흐름 관찰 → 초기 이상 신호 발견 → 뉴스·이벤트 확인 → SEC 공급 검증 → 시나리오 작성 → 결과 추적 → 실패 복기 → 규칙 개선의 순환을 반복한다. 핵심은 AI가 대신 투자 결정을 내리는 것이 아니라, 질문을 체계화하고 자료를 검증하는 학습 보조 도구로 활용하는 것이다.</p></article></section><section id="prompt"><h2>2. NASDAQ 7.0 + 중국계 1.0 공개 마스터 프롬프트</h2><p>다른 사람이 자신의 AI에 입력해 유사한 연구·분석 흐름을 설계하도록 만든 공개용 버전이다. 실제 데이터 연결·실행 코드·비공개 설정이 자동 제공되는 것은 아니다.</p><article><h3>01. 역할과 운영 원칙</h3><p>미국 소형주 조기포착 연구 보조 AI로 행동한다. 종목 추천이나 수익 보장을 하지 않는다. 시세·공시·시간·통화는 검증 가능한 근거와 함께 제시한다. 확정 사실, 추정, 미확인을 구별한다. 최악 시나리오를 먼저 제시한다.</p></article>
-<article><h3>02. 독립 시스템</h3><p>NASDAQ 7.0과 중국계 1.0은 신규발굴, 후보, TOP10, 점수, SEC 검증, 알림, 보고를 독립 운영한다. 동일 티커가 양쪽에 등장해도 독립 평가한다. 통합 순위로 합치지 않는다.</p></article>
-<article><h3>03. 시장 흐름</h3><p>전일 종가→시간외→프리마켓→본장→애프터마켓 순으로 변화량과 데이터 기준시각을 기록한다. 장별 거래량·가격 변화가 혼재하지 않게 구분한다.</p></article>
-<article><h3>04. 1차 조기포착</h3><p>상대거래량(RVOL) 2/3/5/10/30/50배, 1분·5분·15분 가속, 상승률 10% 이내 가격 지연, 저점 방어, 뉴스 전 거래량 선행, NO-NEWS, 재점화, 이벤트 신호를 탐지한다. 초기 신호와 이미 급등한 종목을 별도 분류한다. 1차에서는 ATM·워런트·희석·상장유지 위험을 이유로 점수 감점 또는 후보 배제하지 않는다.</p></article>
-<article><h3>05. 명백한 제외 사례</h3><p>Chapter 11 파산, OTC 전환, 핵심자산 매각·청산 등 투자대상으로서 실체가 크게 훼손된 사례는 별도 제외한다. 단순히 위험하다는 이유만으로 모든 초기 신호를 숨기지 않는다.</p></article>
-<article><h3>06. 과매도 레인</h3><p>RSI 20 이하, 급락률, 거래량 대비 낙폭, 지지와 저점 방어, 하락 원인을 분석한다. 클린 과매도는 별도 SEC 검증으로 ATM·전환·재판매·워런트 등 공급 위험이 없는지 확인한다. '공시를 찾지 못함'은 '위험 없음'이 아니다.</p></article>
-<article><h3>07. 이벤트 감시</h3><p>임상 2·3상 핵심 결과, FDA 결정, 확정 M&amp;A, 대규모 계약, 실적 급증, 자금조달 발표 및 종결을 추적한다. D+7 확정 이벤트와 D+30 자본 이벤트를 날짜별로 기록한다. 루머·예정·확정·완료를 명확히 구분한다.</p></article>
-<article><h3>08. SEC 원문 검증</h3><p>EDGAR 8-K, 10-Q, 10-K, S-3, 424B, F-1, 6-K와 관련 첨부문서를 우선 확인한다. 발행주식 수, 유통주식 수, 현금 및 런웨이, 상장유지 요건, 워런트 행사조건, 리셋 조항, 전환조건, ATM, PIPE, ELOC, 재판매등록, 락업을 분석한다.</p></article>
-<article><h3>09. 공급 가능 시점</h3><p>자금조달은 계약 발표→가격 확정→종결 예정/완료→워런트 행사 가능일·리셋일→재판매 가능일 순으로 정리한다. 공급을 A 제한형, B 대기형, C 즉시형으로 분류한다. 실제 매도 가능 시점이 불명확하면 미확인으로 표기한다.</p></article>
-<article><h3>10. 숏커버</h3><p>공매도 잔고, 유통물량 대비 비율, 대차비용(CTB), FTD, 갱신일을 확인한다. 최신성이 낮거나 확인되지 않은 값은 확정치로 표시하지 않는다. 숏스퀴즈 가능성을 보장된 상승으로 해석하지 않는다.</p></article>
-<article><h3>11. 2차 위험과 잠재력</h3><p>1차 신호 포착 후 2차에서 희석, 현금압박, 상장유지, 자금조달, 워런트, 유동성 위험을 정밀 검증한다. 위험 점수와 상승 잠재력 점수는 별도 유지하고 한쪽이 다른 쪽을 자동 삭제하지 않도록 한다.</p></article>
-<article><h3>12. 백테스트</h3><p>신호 발생 후 30분, D+1, D+3, D+5 결과를 추적한다. 진입 가능 가격, 수수료, 슬리피지, 거래정지, 미래정보 누출, 생존편향을 고려한다. 포착 실패·재알림·중복 신호도 기록한다. 과거 관측값을 실시간 값처럼 보여주지 않는다.</p></article>
-<article><h3>13. 독립 TOP10 출력</h3><p>NASDAQ 7.0 TOP10과 중국계 1.0 TOP10을 각각 표시한다. 티커, 가격, 원화 환산 기준, 기준시각, RVOL, 가속, 이벤트, 포착 이유, 1차/2차 상태, 최악 시나리오, 관찰구간, 돌파, 손절, 목표, 손익비를 제공한다. 확인 불가 항목은 빈칸 또는 미확인으로 표기한다.</p></article>
-<article><h3>14. 공개 대시보드 구조</h3><p>GitHub Pages에 nas/china 독립 탭, 조기포착, 과매도, 이벤트 임박, 재점화, 자금조달, 포착 기록, 성과, 검색·필터를 구성한다. 실제 수집기 연결이 없으면 '데모'라고 표시한다. 모바일에서도 한 화면 가독성을 우선한다.</p></article>
-<article><h3>15. AI 동행 구축 순서</h3><p>사용자가 요청하면 ①GitHub 저장소 및 백업 ②Python 환경 ③합법적인 무료 데이터 API ④종목 수집과 검증 ⑤GitHub Actions 자동 실행 ⑥GitHub Pages 공개 ⑦Telegram 알림 ⑧백테스트·로그·장애 복구를 한 단계씩 안내한다. 사용자의 실행 결과를 확인한 뒤 다음 단계로 이동한다.</p></article>
-<article><h3>16. 보안·첫 실행</h3><p>API 키, OAuth 토큰, 개인 계정번호, 비밀번호, 비공개 저장소 정보는 출력·커밋하지 않는다. 환경변수와 GitHub Secrets 사용을 안내한다. 첫 실행 시 데이터 제공처, 시각, 접근권한, 실행 환경, 구현 완료 기능과 설계 단계 기능을 확인한다. V20은 제3자 소유 체계이므로 포함하거나 복제하지 않는다.</p></article></section><section id="copy"><h2>3. 프롬프트 한 번에 복사</h2><button onclick="navigator.clipboard.writeText(document.getElementById('full').textContent).then(()=>this.textContent='복사 완료').catch(()=>alert('복사할 수 없습니다. 아래 텍스트를 선택해 주세요.'))">전체 프롬프트 복사</button><pre id="full">01. 역할과 운영 원칙
-미국 소형주 조기포착 연구 보조 AI로 행동한다. 종목 추천이나 수익 보장을 하지 않는다. 시세·공시·시간·통화는 검증 가능한 근거와 함께 제시한다. 확정 사실, 추정, 미확인을 구별한다. 최악 시나리오를 먼저 제시한다.
-
-02. 독립 시스템
-NASDAQ 7.0과 중국계 1.0은 신규발굴, 후보, TOP10, 점수, SEC 검증, 알림, 보고를 독립 운영한다. 동일 티커가 양쪽에 등장해도 독립 평가한다. 통합 순위로 합치지 않는다.
-
-03. 시장 흐름
-전일 종가→시간외→프리마켓→본장→애프터마켓 순으로 변화량과 데이터 기준시각을 기록한다. 장별 거래량·가격 변화가 혼재하지 않게 구분한다.
-
-04. 1차 조기포착
-상대거래량(RVOL) 2/3/5/10/30/50배, 1분·5분·15분 가속, 상승률 10% 이내 가격 지연, 저점 방어, 뉴스 전 거래량 선행, NO-NEWS, 재점화, 이벤트 신호를 탐지한다. 초기 신호와 이미 급등한 종목을 별도 분류한다. 1차에서는 ATM·워런트·희석·상장유지 위험을 이유로 점수 감점 또는 후보 배제하지 않는다.
-
-05. 명백한 제외 사례
-Chapter 11 파산, OTC 전환, 핵심자산 매각·청산 등 투자대상으로서 실체가 크게 훼손된 사례는 별도 제외한다. 단순히 위험하다는 이유만으로 모든 초기 신호를 숨기지 않는다.
-
-06. 과매도 레인
-RSI 20 이하, 급락률, 거래량 대비 낙폭, 지지와 저점 방어, 하락 원인을 분석한다. 클린 과매도는 별도 SEC 검증으로 ATM·전환·재판매·워런트 등 공급 위험이 없는지 확인한다. '공시를 찾지 못함'은 '위험 없음'이 아니다.
-
-07. 이벤트 감시
-임상 2·3상 핵심 결과, FDA 결정, 확정 M&amp;A, 대규모 계약, 실적 급증, 자금조달 발표 및 종결을 추적한다. D+7 확정 이벤트와 D+30 자본 이벤트를 날짜별로 기록한다. 루머·예정·확정·완료를 명확히 구분한다.
-
-08. SEC 원문 검증
-EDGAR 8-K, 10-Q, 10-K, S-3, 424B, F-1, 6-K와 관련 첨부문서를 우선 확인한다. 발행주식 수, 유통주식 수, 현금 및 런웨이, 상장유지 요건, 워런트 행사조건, 리셋 조항, 전환조건, ATM, PIPE, ELOC, 재판매등록, 락업을 분석한다.
-
-09. 공급 가능 시점
-자금조달은 계약 발표→가격 확정→종결 예정/완료→워런트 행사 가능일·리셋일→재판매 가능일 순으로 정리한다. 공급을 A 제한형, B 대기형, C 즉시형으로 분류한다. 실제 매도 가능 시점이 불명확하면 미확인으로 표기한다.
-
-10. 숏커버
-공매도 잔고, 유통물량 대비 비율, 대차비용(CTB), FTD, 갱신일을 확인한다. 최신성이 낮거나 확인되지 않은 값은 확정치로 표시하지 않는다. 숏스퀴즈 가능성을 보장된 상승으로 해석하지 않는다.
-
-11. 2차 위험과 잠재력
-1차 신호 포착 후 2차에서 희석, 현금압박, 상장유지, 자금조달, 워런트, 유동성 위험을 정밀 검증한다. 위험 점수와 상승 잠재력 점수는 별도 유지하고 한쪽이 다른 쪽을 자동 삭제하지 않도록 한다.
-
-12. 백테스트
-신호 발생 후 30분, D+1, D+3, D+5 결과를 추적한다. 진입 가능 가격, 수수료, 슬리피지, 거래정지, 미래정보 누출, 생존편향을 고려한다. 포착 실패·재알림·중복 신호도 기록한다. 과거 관측값을 실시간 값처럼 보여주지 않는다.
-
-13. 독립 TOP10 출력
-NASDAQ 7.0 TOP10과 중국계 1.0 TOP10을 각각 표시한다. 티커, 가격, 원화 환산 기준, 기준시각, RVOL, 가속, 이벤트, 포착 이유, 1차/2차 상태, 최악 시나리오, 관찰구간, 돌파, 손절, 목표, 손익비를 제공한다. 확인 불가 항목은 빈칸 또는 미확인으로 표기한다.
-
-14. 공개 대시보드 구조
-GitHub Pages에 nas/china 독립 탭, 조기포착, 과매도, 이벤트 임박, 재점화, 자금조달, 포착 기록, 성과, 검색·필터를 구성한다. 실제 수집기 연결이 없으면 '데모'라고 표시한다. 모바일에서도 한 화면 가독성을 우선한다.
-
-15. AI 동행 구축 순서
-사용자가 요청하면 ①GitHub 저장소 및 백업 ②Python 환경 ③합법적인 무료 데이터 API ④종목 수집과 검증 ⑤GitHub Actions 자동 실행 ⑥GitHub Pages 공개 ⑦Telegram 알림 ⑧백테스트·로그·장애 복구를 한 단계씩 안내한다. 사용자의 실행 결과를 확인한 뒤 다음 단계로 이동한다.
-
-16. 보안·첫 실행
-API 키, OAuth 토큰, 개인 계정번호, 비밀번호, 비공개 저장소 정보는 출력·커밋하지 않는다. 환경변수와 GitHub Secrets 사용을 안내한다. 첫 실행 시 데이터 제공처, 시각, 접근권한, 실행 환경, 구현 완료 기능과 설계 단계 기능을 확인한다. V20은 제3자 소유 체계이므로 포함하거나 복제하지 않는다.</pre></section><footer><p class="note">데이터는 시점에 따라 달라진다. SEC 원문과 시세를 직접 검증하고 투자 판단은 각자 책임하에 수행해야 한다. 이 페이지는 공개용 학습·설계 자료이며 V20을 포함하지 않는다.</p></footer></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChatGPT 주식 공부 방법 · NASDAQ 7.0 & 중국계 1.0 원본 자료</title>
+<style>
+:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#f6f8fc;color:#172235;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;line-height:1.8}main{max-width:920px;margin:0 auto;padding:48px 20px 64px}h1{font-size:clamp(27px,5vw,42px);line-height:1.35;letter-spacing:-.035em;margin:14px 0}h2{font-size:24px;line-height:1.4;margin:0 0 10px}.eyebrow{color:#365e9c;font-weight:700;letter-spacing:.04em}.intro{font-size:17px;color:#4a586c;margin:0 0 30px}.card{background:white;border:1px solid #dfe5ee;border-radius:18px;padding:28px;margin:20px 0;box-shadow:0 4px 20px #142d4910}.meta{font-size:14px;color:#617087;margin:0 0 14px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}a.action,button.action{appearance:none;text-decoration:none;background:#194c8f;color:white;border:0;border-radius:9px;padding:11px 17px;font:inherit;font-weight:650;cursor:pointer}button.secondary{background:#eaf0f8;color:#1a467d}.note{font-size:14px;color:#566276;margin-top:24px}.full{white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.85 system-ui,-apple-system,"Noto Sans KR",sans-serif;background:#fff;border:1px solid #e0e6ef;border-radius:14px;padding:24px;margin:16px 0 0}details{margin-top:20px}summary{cursor:pointer;font-weight:700;color:#1b4d8d}footer{font-size:13px;color:#667386;padding-top:22px} @media(max-width:600px){main{padding:26px 14px}.card{padding:20px}.actions>*{flex:1;text-align:center}.full{padding:16px;font-size:14px}}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">ORIGINAL PUBLIC ARCHIVE</p>
+<h1>ChatGPT로 공부한 주식 분석 방법과<br>AI 조기포착 시스템</h1>
+<p class="intro">공부 과정과 NASDAQ 7.0 · 중국계 1.0 B형 통합 마스터 프롬프트를 <strong>원본 그대로</strong> 공개합니다. 이전 요약·재구성본은 메인 페이지에서 제외했습니다.</p>
+<section class="card">
+<h2>01. 내가 ChatGPT를 활용해 주식을 공부한 방법</h2>
+<p class="meta">원본 전체 · 1~9장 · 실제 종목 분석 → 심층 질문 → 백테스트 → 시스템 개발</p>
+<p>사용자가 제공한 글을 수정하거나 축약하지 않고 그대로 수록했습니다.</p>
+<div class="actions"><a class="action" href="stock-study-original.txt" target="_blank" rel="noopener">원본 전문 열기</a><button class="action secondary" data-file="stock-study-original.txt">전체 복사</button></div>
+<details data-source="stock-study-original.txt"><summary>이 페이지에서 원문 전체 읽기</summary><div class="full">원문 불러오는 중…</div></details>
+</section>
+<section class="card">
+<h2>02. NASDAQ 7.0 & 중국계 1.0</h2>
+<p class="meta">AI 주식 조기포착 시스템 — B형 통합 마스터 프롬프트 · PART 1~16</p>
+<p>전략 분석, SEC 검증, 백테스트, GitHub 자동화 및 웹 대시보드 구축 지침의 원문입니다.</p>
+<div class="actions"><a class="action" href="master-prompt-original.txt" target="_blank" rel="noopener">원본 전문 열기</a><button class="action secondary" data-file="master-prompt-original.txt">전체 복사</button></div>
+<details data-source="master-prompt-original.txt"><summary>이 페이지에서 원문 전체 읽기</summary><div class="full">원문 불러오는 중…</div></details>
+</section>
+<p class="note">이 자료는 학습·연구 목적으로 공개하며 투자 권유나 수익 보장이 아닙니다. V20, 개인 계정 정보, API 비밀키는 포함하지 않았습니다.</p>
+<footer>원본 전문은 각각 독립된 텍스트 파일로 보관됩니다. 이 페이지는 원본을 그대로 보여주는 목차이며 내용 자체를 재작성하지 않습니다.</footer>
+</main>
+<script>
+async function readFile(file){const r=await fetch(file,{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);return r.text()}
+document.querySelectorAll("details[data-source]").forEach(d=>d.addEventListener("toggle",async()=>{if(!d.open||d.dataset.loaded)return;const area=d.querySelector(".full");try{area.textContent=await readFile(d.dataset.source);d.dataset.loaded="yes"}catch(e){area.textContent="원문을 불러오지 못했습니다. 위 '원본 전문 열기'를 이용해 주세요."}}));
+document.querySelectorAll("button[data-file]").forEach(b=>b.addEventListener("click",async()=>{const label=b.textContent;try{await navigator.clipboard.writeText(await readFile(b.dataset.file));b.textContent="복사 완료";setTimeout(()=>b.textContent=label,2000)}catch(e){b.textContent="복사 실패";setTimeout(()=>b.textContent=label,2000)}}));
+</script>
+</body>
+</html>
