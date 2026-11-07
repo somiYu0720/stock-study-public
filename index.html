@@ -27,14 +27,107 @@
 <div class="actions"><a class="action" href="master-prompt-original.txt" target="_blank" rel="noopener">원본 전문 열기</a><button class="action secondary" data-file="master-prompt-original.txt">전체 복사</button></div>
 <details data-source="master-prompt-original.txt"><summary>이 페이지에서 원문 전체 읽기</summary><div class="full">원문 불러오는 중…</div></details>
 </section>
+<section class="card" id="kitty-yu-guide">
+<h2>03. KITTY YU EARLY Radar</h2>
+<p class="meta">Python + Toss API 기반 미국 주식 조기포착 시스템 제작 가이드 · 1~9장</p>
+<p>누구나 자신의 컴퓨터에서 미국 소형주 조기포착 시스템을 직접 구축할 수 있도록 제작 방법을 공유합니다.</p>
+<div class="actions"><button class="action secondary" id="copy-kitty">제작 가이드 전체 복사</button></div>
+<details id="kitty-guide-details" open><summary>이 페이지에서 제작 가이드 전체 읽기</summary><div class="full" id="kitty-guide-text">KITTY YU EARLY Radar
+Python + Toss API 기반 미국 주식 조기포착 시스템 제작 가이드
+
+목적: 누구나 자신의 컴퓨터에서 미국 소형주 조기포착 시스템을 직접 구축할 수 있도록 제작 방법을 공유한다.
+
+1. 개발 환경
+- Python 3
+- Toss API 개인 인증
+- GitHub 및 GitHub Actions
+- GitHub Pages
+- ChatGPT
+
+2. 실시간 데이터 수집
+- 미국 주식 1분봉 OHLCV 수집
+- 연속 분봉 저장 및 누락 검증
+- 전일 종가 및 과거 거래량 수집
+- 데이터 수집 시각 기록
+- API 오류 및 인증 만료 처리
+
+3. 조기포착 핵심 기능
+- 거래량 2·3·5·10·30·50배 가속 탐지
+- 5분·15분 거래량 변화
+- 가격 상승률 10% 이내 초기 신호 관찰
+- 거래량 선행형 탐지
+- 저점 방어 및 박스권 압축
+- 급락 후 반등 신호
+- 재점화 및 돌파 신호
+- 이미 급등한 종목 별도 구분
+
+4. SEC 공시·뉴스·이벤트
+- SEC EDGAR 공시 조회
+- 8-K·6-K 등 주요 공시 감시
+- FDA·임상시험 일정
+- 인수합병 및 대규모 계약
+- 실적 발표 및 신규 이벤트
+- 뉴스 발표 전후 거래량 변화 분석
+- 공시 원문과 확인 시각 표시
+
+5. 독립 조기포착 시스템
+NASDAQ 7.0
+- 미국 소형주 신규 발굴
+- 거래량·가격·이벤트 중심 조기포착
+- 독립 TOP10 생성
+
+중국계 1.0
+- 중국계 미국 상장 소형주 탐색
+- 거래량·가격·이벤트 중심 조기포착
+- 독립 TOP10 생성
+
+두 시스템의 후보와 순위는 합산하지 않는다.
+
+6. 조기포착 점수
+- 기존 조기포착 계산식 재현
+- 수집 시점의 실제 데이터만 사용
+- 데이터가 부족한 지표는 미확인 표시
+- 1차 포착에서 희석·상장유지 위험으로 자동 감점하지 않음
+
+※ 원본 계산식은 실제 소스코드 확인 후 확정한다.
+
+7. GitHub 자동화
+- 수집 프로그램 실행
+- 조기포착 결과 파일 생성
+- NASDAQ 7.0 / 중국계 1.0 분리 저장
+- 최초 포착 시각 기록
+- 오류 및 데이터 지연 표시
+- GitHub Pages 대시보드 구성
+
+8. 포착 성과 검증
+- 최초 포착 당시 가격
+- 포착 후 5분·15분·30분 가격 변화
+- 포착 후 1거래일 변화
+- 최대 상승폭 및 최대 하락폭
+- 포착 시점과 급등 시작 시점 비교
+
+9. 공개 원칙
+- 개인 API 키·토큰·계정정보 제외
+- 각 사용자 본인의 API 인증 사용
+- 데이터 제공자의 이용·재배포 조건 준수
+- 기존 개인용 포착기 원본 보존
+- 확인되지 않은 실시간 데이터·성과를 사실처럼 표시하지 않음
+
+최종 목표
+Python 설치 → Toss API 연결 → 1분봉 수집 → SEC 공시·이벤트 탐색 → 조기포착 계산 → 독립 TOP10 → GitHub 자동화
+
+누구나 이 순서대로 따라 만들어 자신의 조기포착 시스템을 운영할 수 있도록 한다.</div></details>
+<p class="meta">현재는 제작 설계 가이드이며, 실행 가능한 전체 코드 패키지는 포함되지 않습니다.</p>
+</section>
 <p class="note">이 자료는 학습·연구 목적으로 공개하며 투자 권유나 수익 보장이 아닙니다.</p>
 <footer>원본 전문은 각각 독립된 텍스트 파일로 보관됩니다. 이 페이지는 원본을 그대로 보여주는 목차이며 내용 자체를 재작성하지 않습니다.</footer>
-<p class="note"><a href="./kitty-yu-early-radar/">KITTY YU EARLY Radar · 제작 가이드 보기</a></p>
+
 </main>
 <script>
 async function readFile(file){const r=await fetch(file,{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);return r.text()}
 document.querySelectorAll("details[data-source]").forEach(d=>d.addEventListener("toggle",async()=>{if(!d.open||d.dataset.loaded)return;const area=d.querySelector(".full");try{area.textContent=await readFile(d.dataset.source);d.dataset.loaded="yes"}catch(e){area.textContent="원문을 불러오지 못했습니다. 위 '원본 전문 열기'를 이용해 주세요."}}));
 document.querySelectorAll("button[data-file]").forEach(b=>b.addEventListener("click",async()=>{const label=b.textContent;try{await navigator.clipboard.writeText(await readFile(b.dataset.file));b.textContent="복사 완료";setTimeout(()=>b.textContent=label,2000)}catch(e){b.textContent="복사 실패";setTimeout(()=>b.textContent=label,2000)}}));
+document.getElementById("copy-kitty").addEventListener("click",async()=>{const b=document.getElementById("copy-kitty");try{await navigator.clipboard.writeText(document.getElementById("kitty-guide-text").textContent);b.textContent="복사 완료"}catch(e){b.textContent="복사 실패"}});
 </script>
 </body>
 </html>
